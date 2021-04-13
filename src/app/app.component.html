@@ -1,0 +1,34 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="app-container">
+    <div style="text-align: center;">
+        <h1>
+            Herzlich wilkommen zu {{ title }}!
+        </h1>
+        <img width="300" alt="OBI Logo" src="../assets/images/obi-logo.png" style="margin: 20px auto;">
+    </div>
+
+    <h2>Hier können Sie die Einträge ergänzen:</h2>
+    <div class="table">
+        <ul #tablelist>
+            <li *ngFor="let listItem of listItems">
+                <div>
+                    <input [(ngModel)]="listItem.cell1" />
+                </div>
+                <div>
+                    <input [(ngModel)]="listItem.cell2" />
+                </div>
+                <div>
+                    <input [(ngModel)]="listItem.cell3" />
+                </div>
+                <div>
+                    <textarea [(ngModel)]="listItem.cell4"></textarea>
+                </div>
+            </li>
+        </ul>
+        <button class="orange" type="button" (click)="addRow()">Neue Zeile</button>
+        <button class="green" type="button" (click)="exportExcel()">Export Excel</button>
+        <button class="blue" type="button" (click)="exportPDF()">Export PDF</button>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
